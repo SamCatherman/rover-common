@@ -14,7 +14,6 @@ module SNT
         @open_timeout = options.fetch(:open_timeout, SNT::Webhook.config.open_timeout)
         @read_timeout = options.fetch(:read_timeout, SNT::Webhook.config.read_timeout)
         puts "are we raising this error?......"
-        byebug
         raise SNT::Webhook::Error, 'Missing API endpoint' if @api_endpoint.to_s.empty?
       end
 
@@ -30,7 +29,6 @@ module SNT
 
       def connection
         puts "attempting to create faraday connection......"
-        byebug
         @connection ||= Faraday.new(
           @api_endpoint,
           headers: { 'Chain-UUID' => @chain_uuid },
