@@ -9,7 +9,6 @@ module SNT
       def initialize(options = {})
         puts "initializing connection................ options class: #{options.class}"
         puts "initializing connection................ options: #{options}"
-        byebug
         @chain_uuid   = options.fetch(:chain_uuid)
         @api_endpoint = options.fetch(:api_endpoint, SNT::Webhook.config.api_endpoint)
         @open_timeout = options.fetch(:open_timeout, SNT::Webhook.config.open_timeout)
@@ -29,6 +28,8 @@ module SNT
       private
 
       def connection
+        puts "attempting to create faraday connection......"
+        byebug
         @connection ||= Faraday.new(
           @api_endpoint,
           headers: { 'Chain-UUID' => @chain_uuid },
