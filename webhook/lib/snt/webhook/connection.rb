@@ -7,7 +7,8 @@ module SNT
       attr_reader :chain_uuid
 
       def initialize(options = {})
-        puts "initializing connection................"
+        puts "initializing connection................ options class: #{options.class}"
+        puts "initializing connection................ options: #{options}"
         byebug
         @chain_uuid   = options.fetch(:chain_uuid)
         @api_endpoint = options.fetch(:api_endpoint, SNT::Webhook.config.api_endpoint)
