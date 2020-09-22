@@ -39,6 +39,7 @@ module SNT
           conn.use FaradayMiddleware::FollowRedirects, limit: 1
           conn.adapter Faraday.default_adapter
         end
+        byebug
       end
     end
   end
