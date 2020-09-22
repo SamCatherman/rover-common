@@ -18,6 +18,7 @@ module SNT
       end
 
       def request(method, url, params: nil, body: nil, headers: nil)
+        byebug
         response = connection.run_request(method, url, body, headers) do |request|
           request.params.update(params) unless params.nil?
         end
@@ -29,7 +30,7 @@ module SNT
 
       def connection
         puts "attempting to create faraday connection......"
-        @connection ||= Faraday.new(
+        @connection = Faraday.new(
           @api_endpoint,
           headers: { 'Chain-UUID' => @chain_uuid },
           request: { open_timeout: @open_timeout, timeout: @read_timeout }
@@ -39,7 +40,6 @@ module SNT
           conn.use FaradayMiddleware::FollowRedirects, limit: 1
           conn.adapter Faraday.default_adapter
         end
-        byebug
       end
     end
   end
