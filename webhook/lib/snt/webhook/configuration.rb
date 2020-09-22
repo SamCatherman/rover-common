@@ -12,6 +12,7 @@ module SNT
       end
 
       def initialize
+        puts "INITIALIZING......."
         self.class.defaults.each do |key, value|
           puts "setting key: #{key} to val: #{value}"
           instance_variable_set("@#{key}", value)
@@ -20,6 +21,7 @@ module SNT
     end
 
     def self.config
+      puts "initializing......"
       @config ||= Configuration.new
     end
 

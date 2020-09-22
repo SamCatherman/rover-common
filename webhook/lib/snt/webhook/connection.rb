@@ -13,7 +13,7 @@ module SNT
         @api_endpoint = options.fetch(:api_endpoint, SNT::Webhook.config.api_endpoint)
         @open_timeout = options.fetch(:open_timeout, SNT::Webhook.config.open_timeout)
         @read_timeout = options.fetch(:read_timeout, SNT::Webhook.config.read_timeout)
-        puts "are we raising this error?......"
+
         raise SNT::Webhook::Error, 'Missing API endpoint' if @api_endpoint.to_s.empty?
       end
 
