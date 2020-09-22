@@ -22,7 +22,7 @@ module SNT
 
     def self.config
       puts "initializing......"
-      @config ||= Configuration.new
+      @config = Configuration.new
     end
 
     def self.configure
