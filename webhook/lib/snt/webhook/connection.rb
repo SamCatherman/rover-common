@@ -18,7 +18,6 @@ module SNT
       end
 
       def request(method, url, params: nil, body: nil, headers: nil)
-        byebug
         response = connection.run_request(method, url, body, headers) do |request|
           request.params.update(params) unless params.nil?
         end
@@ -30,6 +29,7 @@ module SNT
 
       def connection
         puts "attempting to create faraday connection......"
+        byebug
         @connection = Faraday.new(
           @api_endpoint,
           headers: { 'Chain-UUID' => @chain_uuid },

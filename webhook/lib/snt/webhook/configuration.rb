@@ -5,7 +5,7 @@ module SNT
 
       def self.defaults
         @defaults ||= {
-          api_endpoint: "http://localhost:9001/webhooks/ping",
+          api_endpoint: "http://localhost:5000",
           open_timeout: 5,
           read_timeout: 5
         }
