@@ -13,6 +13,7 @@ module SNT
 
       def initialize
         self.class.defaults.each do |key, value|
+          puts "setting key: #{key} to val: #{value}"
           instance_variable_set("@#{key}", value)
         end
       end
