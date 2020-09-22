@@ -7,6 +7,8 @@ module SNT
       attr_reader :chain_uuid
 
       def initialize(options = {})
+        puts "initializing connection................"
+        byebug
         @chain_uuid   = options.fetch(:chain_uuid)
         @api_endpoint = options.fetch(:api_endpoint, SNT::Webhook.config.api_endpoint)
         @open_timeout = options.fetch(:open_timeout, SNT::Webhook.config.open_timeout)

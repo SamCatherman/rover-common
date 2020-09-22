@@ -5,6 +5,9 @@ module SNT
   module Webhook
     class Client
       def initialize(chain_uuid:, **options)
+        puts "######################################"
+        puts "options :#{options}"
+        puts "######################################"
         @options = options.merge(chain_uuid: chain_uuid)
       end
 
