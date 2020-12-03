@@ -29,7 +29,7 @@ module SNT
 
       def connection
         puts "attempting to create faraday connection......"
-        byebug
+        # byebug
         @connection = Faraday.new(
           @api_endpoint,
           headers: { 'Chain-UUID' => @chain_uuid },

@@ -13,7 +13,6 @@ module SNT
         end
 
         def initialize(connection)
-          byebug
           @connection = connection
         end
 
