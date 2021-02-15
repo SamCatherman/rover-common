@@ -16,8 +16,7 @@ module SNT
       end
 
       def request(method, url, params: nil, body: nil, headers: nil)
-        byebug # body.to_h?
-        response = connection.run_request(method, url, body, headers) do |request|
+        response = connection.run_request(method, url, body.permit!.to_h, headers) do |request|
           request.params.update(params) unless params.nil?
         end
         response.to_hash[:body]
