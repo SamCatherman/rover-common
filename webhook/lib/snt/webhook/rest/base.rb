@@ -23,6 +23,8 @@ module SNT
         end
 
         def post(url, data)
+          puts "POST data: #{data.inspect}"
+          puts "POST data.class: #{data.class}"
           @connection.request(:post, url, body: data)
         end
 
