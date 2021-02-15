@@ -17,6 +17,7 @@ module SNT
 
       def request(method, url, params: nil, body: nil, headers: nil)
         response = connection.run_request(method, url, body, headers) do |request|
+          byebug # check params class here.
           request.params.update(params) unless params.nil?
         end
 
