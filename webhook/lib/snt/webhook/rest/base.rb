@@ -23,12 +23,13 @@ module SNT
         end
 
         def post(url, data)
-          puts "POST data: #{data.inspect}"
-          puts "POST data.class: #{data.class}"
           @connection.request(:post, url, body: data)
         end
 
         def put(url, data)
+          puts "PUT data: #{data.inspect}"
+          puts "PUT data.class: #{data.class}"
+          byebug
           @connection.request(:put, url, body: data)
         end
 
