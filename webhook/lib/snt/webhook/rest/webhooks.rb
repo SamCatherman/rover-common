@@ -7,10 +7,6 @@ module SNT
         resource :webhook
 
         def list(params = {})
-          puts "***************LIST:*****************"
-          puts "params: #{params}"
-          puts "path: #{path}"
-          puts "**************************************"
           get(path, params)
         end
 
