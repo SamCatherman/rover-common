@@ -16,7 +16,6 @@ module SNT
       end
 
       def request(method, url, params: nil, body: nil, headers: nil)
-        body = body.permit!.to_h if body.present?
         response = connection.run_request(method, url, body, headers) do |request|
           request.params.update(params) unless params.nil?
         end
