@@ -17,10 +17,10 @@ module SNT
 
       def request(method, url, params: nil, body: nil, headers: nil)
         response = connection.run_request(method, url, body, headers) do |request|
-          byebug # check params class here.
+          # body == params
           request.params.update(params) unless params.nil?
         end
-
+        byebug
         response.to_hash[:body]
       end
 
